@@ -45,9 +45,14 @@ def calc_error_rate_for_single_vector_w(w, numpy_x, numpy_y):
         y_true = numpy_y[i][0]
 
         pred_raw = float(w.T @ x)
-        y_pred = 1 if pred_raw > 0 else -1
 
-        if y_pred != y_true:
+        if pred_raw > 0:
+            y_pred = 1
+        elif pred_raw < 0:
+            y_pred = -1
+        else:
+            y_pred = 0  
+        if y_pred == 0 or y_pred != y_true:
             errors += 1
 
     error_rate = errors / n
