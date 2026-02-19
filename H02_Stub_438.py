@@ -1,3 +1,5 @@
+#Govan Henry CMSC 438 HW2
+
 #!/usr/bin/env python
 # coding: utf-8
 # Python library imports
