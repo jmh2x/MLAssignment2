@@ -46,12 +46,14 @@ def calc_error_rate_for_single_vector_w(w, numpy_x, numpy_y):
 
         pred_raw = float(w.T @ x)
 
+        
         if pred_raw > 0:
             y_pred = 1
         elif pred_raw < 0:
             y_pred = -1
         else:
             y_pred = 0  
+
         if y_pred == 0 or y_pred != y_true:
             errors += 1
 
@@ -79,9 +81,15 @@ def train_and_evaluate(numpy_x, numpy_y, n_epochs = 20, c = 0.01):
             y_true = numpy_y[i][0]
 
             pred_raw = float(w.T @ x)
-            y_pred = 1 if pred_raw > 0 else -1
 
-            if y_pred != y_true:
+            if pred_raw > 0:
+                y_pred = 1
+            elif pred_raw < 0:
+                y_pred = -1
+            else:
+                y_pred = 0
+
+            if y_pred == 0 or y_pred != y_true:
                 w = w + c * (y_true - y_pred) * x
 
         err = calc_error_rate_for_single_vector_w(w, numpy_x, numpy_y)
