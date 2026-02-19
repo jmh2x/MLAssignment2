@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 # coding: utf-8
 # Python library imports
@@ -82,7 +81,7 @@ def train_and_evaluate(numpy_x, numpy_y, n_epochs = 20, c = 0.01):
         print("Epoch", epoch, "error rate:", err)
 
     #plot_trained_w_and_dataset(numpy_x, numpy_y, w)
-    return w;
+    return w
 
 
 if __name__ == "__main__":
@@ -98,7 +97,7 @@ if __name__ == "__main__":
         plt.ylabel('PowerHP')
         if (w[1]==0): #weights are (something,0); feature x2 doesn't matter
             x2_line = np.linspace(-2, 2, 100)
-            x1_line = 0*x2_line;
+            x1_line = 0*x2_line
         else:
             x1_line = np.linspace(-2, 2, 100)
             x2_line = (-w[0] * x1_line) / w[1]
@@ -108,7 +107,7 @@ if __name__ == "__main__":
 
     # Testing read_csv_convert_to_numpy & calc_error_rate_for_single_vector_w
     # see HW2 slides for expected output
-    numpy_x, numpy_y = read_csv_convert_to_numpy(fileName='carSUV_normalized.csv');
+    numpy_x, numpy_y = read_csv_convert_to_numpy(fileName='carSUV_normalized.csv')
     np.random.seed(3) # to fix randomness
     random_w = np.random.randn(2,1)
     print("Random weights array shape",random_w.shape)
@@ -121,7 +120,7 @@ if __name__ == "__main__":
     # plotting the linear model over the dataset, using the functions defined above.
     # see HW2 slides for expected output
     np.random.seed(8) # to eliminate randomness
-    numpy_x, numpy_y = read_csv_convert_to_numpy(fileName='carSUV_normalized.csv');
-    trained_w = train_and_evaluate(numpy_x, numpy_y, n_epochs = 20, c = 0.01);
+    numpy_x, numpy_y = read_csv_convert_to_numpy(fileName='carSUV_normalized.csv')
+    trained_w = train_and_evaluate(numpy_x, numpy_y, n_epochs = 20, c = 0.01)
     print(trained_w)
-    plot_trained_w_and_dataset(numpy_x, numpy_y, trained_w);
+    plot_trained_w_and_dataset(numpy_x, numpy_y, trained_w)
