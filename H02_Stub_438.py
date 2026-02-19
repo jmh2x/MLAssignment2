@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.colors import Normalize
-import pandas as pd;
+import pandas as pd
 
 # Function definitions for reading data and training the model
 def read_csv_convert_to_numpy(fileName='carSUV_normalized.csv'):
